@@ -28,11 +28,15 @@ if (contactForm) {
   contactForm.addEventListener("submit", (e) => {
     e.preventDefault();
 
-    const name = document.getElementById("name").value.trim();
-    const email = document.getElementById("email").value.trim();
-    const phone = document.getElementById("phone").value.trim();
-    const message = document.getElementById("message").value.trim();
-    const phonePattern = /^[0-9]{10}$/;
+    const name = document.querySelector('input[name="name"]').value.trim();
+    const email = document.querySelector('input[name="email"]').value.trim();
+    const phone = document.querySelector('input[name="number"]').value.trim();
+    const selectedSubject = document.querySelector(
+      'select[name="subject"]'
+    ).value;
+    const message = document
+      .querySelector('textarea[name="message"]')
+      .value.trim();
 
     if (!phonePattern.test(phone)) {
       alert("Please enter a valid 10-digit contact number.");
@@ -44,7 +48,7 @@ if (contactForm) {
       return;
     }
 
-    const subject = `Message from ${name}`;
+    const emailSubject = `Message from ${name}`;
     const body = `
 Name: ${name}
 Email: ${email}
@@ -56,7 +60,9 @@ ${message}
 
     const mailtoLink = `mailto:ashwamedh.pappu@gmail.com?subject=${encodeURIComponent(
       subject
-    )}&body=${encodeURIComponent(body)}`;
+    )}&body=${encodeURIComponent(body)}&subject=${encodeURIComponent(
+      selectedSubject
+    )}`;
 
     window.location.href = mailtoLink;
   });
