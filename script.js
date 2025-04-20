@@ -38,6 +38,8 @@ if (contactForm) {
       .querySelector('textarea[name="message"]')
       .value.trim();
 
+    const phonePattern = /^\d{10}$/;
+
     if (!phonePattern.test(phone)) {
       alert("Please enter a valid 10-digit contact number.");
       return;
@@ -48,7 +50,6 @@ if (contactForm) {
       return;
     }
 
-    const emailSubject = `Message from ${name}`;
     const body = `
 Name: ${name}
 Email: ${email}
@@ -59,10 +60,8 @@ ${message}
     `;
 
     const mailtoLink = `mailto:ashwamedh.pappu@gmail.com?subject=${encodeURIComponent(
-      subject
-    )}&body=${encodeURIComponent(body)}&subject=${encodeURIComponent(
       selectedSubject
-    )}`;
+    )}&body=${encodeURIComponent(body)}`;
 
     window.location.href = mailtoLink;
   });
