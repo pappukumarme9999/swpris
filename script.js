@@ -57,7 +57,7 @@ Message:
 ${message}
     `;
 
-    const mailtoLink = `mailto:ashwamedh.pappu@gmail.com?subject=${encodeURIComponent(
+    const mailtoLink = `mailto:mauliops@hotmail.com?subject=${encodeURIComponent(
       selectedSubject
     )}&body=${encodeURIComponent(body)}`;
 
