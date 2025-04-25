@@ -29,7 +29,6 @@ if (contactForm) {
     e.preventDefault();
 
     const name = document.querySelector('input[name="name"]').value.trim();
-    const email = document.querySelector('input[name="email"]').value.trim();
     const phone = document.querySelector('input[name="number"]').value.trim();
     const selectedSubject = document.querySelector(
       'select[name="subject"]'
@@ -45,14 +44,13 @@ if (contactForm) {
       return;
     }
 
-    if (!name || !email || !message) {
+    if (!name || !message) {
       alert("Please fill out all fields.");
       return;
     }
 
     const body = `
 Name: ${name}
-Email: ${email}
 Contact Number: ${phone}
 
 Message:
